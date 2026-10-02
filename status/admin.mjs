@@ -68,13 +68,13 @@ function renderPreview() {
         })
       : baseline;
     const overall = overallStatus(previewData.components);
-    const parts = [STATUS_SUMMARY[overall]];
+    const parts = [`${STATUS_SUMMARY[overall]}.`];
     if (changes.length) {
       const names = changes.map((change) => {
         const component = baseline.components.find((item) => item.id === change.id);
         return `${component.name} → ${STATUS_LABEL[change.status]}`;
       });
-      parts.push(names.join(", ") + ".");
+      parts.push(`${names.join(", ")}.`);
     }
     if (incident) parts.push(`Incident “${incident.title.trim()}” will be published.`);
     if (!changes.length && !incident) parts.push("No unpublished changes.");
