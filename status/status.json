@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-10-02T21:00:00.000Z",
+  "components": [
+    {
+      "id": "website",
+      "name": "Website",
+      "description": "jogobytes.com",
+      "status": "operational"
+    },
+    {
+      "id": "api",
+      "name": "API",
+      "description": "Lab API surface",
+      "status": "operational"
+    },
+    {
+      "id": "builds",
+      "name": "Builds",
+      "description": "Open build pipeline",
+      "status": "operational"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "inc-20261002T210000000Z",
+      "title": "Public status page opened",
+      "state": "resolved",
+      "createdAt": "2026-10-02T21:00:00.000Z",
+      "updates": [
+        {
+          "id": "upd-20261002T210000000Z",
+          "state": "resolved",
+          "message": "The jogobytes public status page is open. Website, API, and Builds are operational.",
+          "publishedAt": "2026-10-02T21:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}
