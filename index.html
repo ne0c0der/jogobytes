@@ -3,33 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jogobytes — an AI-run build lab</title>
-<meta name="description" content="jogobytes is an AI-run build lab. Every build happens in the open.">
+<title>jogobytes — Jorge</title>
+<meta name="description" content="jogobytes is Jorge. I build software on the internet.">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <style>
   body { background: #0a0b09; }
   .accent { color: #a8e6b0; }
+  .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
 </style>
 </head>
 <body class="text-neutral-100 antialiased">
 <main class="max-w-3xl mx-auto px-6">
-  <section class="pt-28 pb-20 md:pt-40 md:pb-28">
+  <section class="pt-28 pb-16 md:pt-40 md:pb-20">
     <h1 class="text-6xl md:text-8xl font-bold tracking-tight">jogobytes</h1>
     <p class="mt-6 text-xl md:text-2xl text-neutral-400 max-w-xl leading-relaxed">
-      An AI-run build lab. Every build happens in the open —
-      <span class="accent">issues, PRs, all of it.</span>
+      Jorge. I build <span class="accent">software</span> on the internet.
+    </p>
+    <p class="mt-8 text-sm font-mono text-neutral-500">
+      <span class="pulse-dot accent inline-block">&#9679;</span>
+      &nbsp;now: shipping ne0bench
     </p>
   </section>
   <section class="py-16 border-t border-neutral-800">
-    <p class="text-xs uppercase tracking-widest text-neutral-500 mb-6">Now cooking</p>
-    <div class="border border-neutral-800 rounded-lg p-6 bg-neutral-900/40">
-      <p class="text-sm text-neutral-500 mb-2">Build 001</p>
-      <h2 class="text-2xl font-semibold mb-3">This page.</h2>
-      <p class="text-neutral-400 leading-relaxed">
-        The lab's first job was building its own front door.
-        Scaffolded, written, and shipped in public —
-        <a href="https://github.com/ne0c0der/jogobytes" class="accent underline underline-offset-4 decoration-neutral-700 hover:decoration-current">watch it happen here</a>.
-      </p>
+    <p class="text-xs uppercase tracking-widest text-neutral-500 mb-6">Building</p>
+    <div class="flex flex-col gap-4">
+      <div class="border border-neutral-800 rounded-lg p-6 bg-neutral-900/40">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="font-semibold text-lg">ne0bench</h2>
+          <p class="text-xs font-mono text-neutral-500 uppercase tracking-wider">launching soon</p>
+        </div>
+        <p class="text-neutral-400 leading-relaxed">
+          Open-source benchmark for small AI models on real consumer hardware.
+          Capability meets the machine it actually runs on.
+        </p>
+      </div>
+      <div class="border border-neutral-800 rounded-lg p-6 bg-neutral-900/40">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="font-semibold text-lg">Something new is joining the team.</h2>
+          <p class="text-xs font-mono text-neutral-500 uppercase tracking-wider">private beta</p>
+        </div>
+        <p class="text-neutral-400 leading-relaxed">
+          A capable teammate for the work between the meetings.
+          You'll meet it soon.
+        </p>
+      </div>
     </div>
   </section>
   <section class="py-16 border-t border-neutral-800">
@@ -38,18 +59,18 @@
       <a href="https://x.com/jogobytes"
          class="flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors">
         <p class="font-semibold text-lg">X</p>
-        <p class="text-neutral-500 text-sm mt-1">@jogobytes — building in public, daily.</p>
+        <p class="text-neutral-500 text-sm mt-1">@jogobytes</p>
       </a>
       <a href="https://github.com/ne0c0der"
          class="flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors">
         <p class="font-semibold text-lg">GitHub</p>
-        <p class="text-neutral-500 text-sm mt-1">ne0c0der — the code behind the builds.</p>
+        <p class="text-neutral-500 text-sm mt-1">ne0c0der</p>
       </a>
     </div>
   </section>
   <footer class="py-12 border-t border-neutral-800 flex items-center justify-between text-sm text-neutral-600">
     <p>&copy; 2026 jogobytes</p>
-    <p>Built in the open.</p>
+    <p>Detroit, Michigan</p>
   </footer>
 </main>
 </body>
