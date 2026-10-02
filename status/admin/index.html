@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Update jogobytes status</title>
+<meta name="theme-color" content="#0a0b09">
+<link rel="stylesheet" href="/status/status.css">
+</head>
+<body>
+<a class="skip" href="#publish-form">Skip to update form</a>
+<main class="wrap">
+  <header class="top">
+    <a class="brand" href="/">jogobytes</a>
+    <nav aria-label="Admin">
+      <a href="/status">Public page</a>
+    </nav>
+  </header>
+  <h1>Update status</h1>
+  <p class="lede">Set Website, API, and Builds, and publish an incident update. Publishing commits <code>status/status.json</code> to <code>main</code>. Cloudflare Pages then refreshes the public page. The token stays in this browser tab.</p>
+
+  <form id="publish-form" method="post" action="/status/admin" autocomplete="off">
+    <section class="card">
+      <h2>Components</h2>
+      <div id="components" class="stack"></div>
+    </section>
+
+    <section class="card">
+      <h2>Incident update</h2>
+      <div class="stack">
+        <label>Title
+          <input name="title" maxlength="120" autocomplete="off" placeholder="Short public title">
+        </label>
+        <label>Update
+          <textarea name="message" maxlength="2000" placeholder="What happened, and what is affected."></textarea>
+        </label>
+        <label>State
+          <select name="state"></select>
+        </label>
+        <p class="help">Leave the title and update blank to publish component status only.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Publish</h2>
+      <div class="stack">
+        <p id="preview-summary" class="lede">Loading preview…</p>
+        <label for="token">GitHub token
+          <input id="token" type="password" autocomplete="new-password" spellcheck="false" aria-describedby="token-help">
+        </label>
+        <p id="token-help" class="help">Fine-grained personal access token with Contents read and write on ne0c0der/jogobytes. It is sent only to api.github.com and kept in sessionStorage for this tab.</p>
+        <div class="row-actions">
+          <button class="primary" type="submit">Publish to public page</button>
+          <button class="ghost" id="reload" type="button">Reload</button>
+          <button class="ghost" id="forget" type="button">Forget token</button>
+        </div>
+        <p id="result" class="result" role="status"></p>
+      </div>
+    </section>
+  </form>
+</main>
+<script type="module" src="/status/admin.mjs"></script>
+</body>
+</html>
