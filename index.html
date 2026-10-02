@@ -14,24 +14,37 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.25; }
   }
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .pulse-dot { animation: none; }
+  }
 </style>
 </head>
 <body class="text-neutral-100 antialiased">
 <main class="max-w-3xl mx-auto px-6">
   <section class="pt-28 pb-16 md:pt-40 md:pb-20">
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tight">jogobytes</h1>
-    <p class="mt-6 text-xl md:text-2xl text-neutral-400 max-w-xl leading-relaxed">
+    <h1 class="reveal text-6xl md:text-8xl font-bold tracking-tight">jogobytes</h1>
+    <p class="reveal mt-6 text-xl md:text-2xl text-neutral-400 max-w-xl leading-relaxed" style="transition-delay:120ms">
       Jorge. I build <span class="accent">software</span> on the internet.
     </p>
-    <p class="mt-8 text-sm font-mono text-neutral-500">
+    <p class="reveal mt-8 text-sm font-mono text-neutral-500" style="transition-delay:240ms">
       <span class="pulse-dot accent inline-block">&#9679;</span>
       &nbsp;now: shipping ne0bench
     </p>
   </section>
   <section class="py-16 border-t border-neutral-800">
-    <p class="text-xs uppercase tracking-widest text-neutral-500 mb-6">Building</p>
+    <p class="reveal text-xs uppercase tracking-widest text-neutral-500 mb-6">Building</p>
     <div class="flex flex-col gap-4">
-      <div class="border border-neutral-800 rounded-lg p-6 bg-neutral-900/40">
+      <div class="reveal border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors" style="transition-delay:80ms">
         <div class="flex items-baseline justify-between mb-2">
           <h2 class="font-semibold text-lg">ne0bench</h2>
           <p class="text-xs font-mono text-neutral-500 uppercase tracking-wider">launching soon</p>
@@ -41,7 +54,7 @@
           Capability meets the machine it actually runs on.
         </p>
       </div>
-      <div class="border border-neutral-800 rounded-lg p-6 bg-neutral-900/40">
+      <div class="reveal border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors" style="transition-delay:160ms">
         <div class="flex items-baseline justify-between mb-2">
           <h2 class="font-semibold text-lg">Something new is joining the team.</h2>
           <p class="text-xs font-mono text-neutral-500 uppercase tracking-wider">private beta</p>
@@ -54,24 +67,49 @@
     </div>
   </section>
   <section class="py-16 border-t border-neutral-800">
-    <p class="text-xs uppercase tracking-widest text-neutral-500 mb-6">Elsewhere</p>
+    <p class="reveal text-xs uppercase tracking-widest text-neutral-500 mb-6">Elsewhere</p>
     <div class="flex flex-col sm:flex-row gap-4">
       <a href="https://x.com/jogobytes"
-         class="flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors">
+         class="reveal flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 hover:-translate-y-1 transition-all" style="transition-delay:80ms">
         <p class="font-semibold text-lg">X</p>
         <p class="text-neutral-500 text-sm mt-1">@jogobytes</p>
       </a>
       <a href="https://github.com/ne0c0der"
-         class="flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 transition-colors">
+         class="reveal flex-1 border border-neutral-800 rounded-lg p-6 bg-neutral-900/40 hover:border-neutral-600 hover:-translate-y-1 transition-all" style="transition-delay:160ms">
         <p class="font-semibold text-lg">GitHub</p>
         <p class="text-neutral-500 text-sm mt-1">ne0c0der</p>
       </a>
     </div>
   </section>
-  <footer class="py-12 border-t border-neutral-800 flex items-center justify-between text-sm text-neutral-600">
+  <footer class="reveal py-12 border-t border-neutral-800 flex items-center justify-between text-sm text-neutral-600">
     <p>&copy; 2026 jogobytes</p>
     <p>Detroit, Michigan</p>
   </footer>
 </main>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    requestAnimationFrame(function () {
+      document.querySelectorAll('section:first-of-type .reveal').forEach(function (el) {
+        el.classList.add('visible');
+      });
+    });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) {
+        if (!el.closest('section:first-of-type')) io.observe(el);
+      });
+    } else {
+      els.forEach(function (el) { el.classList.add('visible'); });
+    }
+  })();
+</script>
 </body>
 </html>
