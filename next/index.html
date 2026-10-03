@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next — Now, Next, Later</title>
+<meta name="description" content="File work under Now, Next, and Later, reorder it, and copy one static HTML block for your site. Stored in this browser.">
+<meta name="theme-color" content="#0a0b09">
+<link rel="canonical" href="https://jogobytes.com/next">
+<link rel="stylesheet" href="/next/next.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to board</a>
+<main class="wrap">
+  <header class="top">
+    <a class="brand" href="/">jogobytes</a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/status">Status</a>
+    </nav>
+  </header>
+  <h1>Next</h1>
+  <p class="lede">File what you are doing now, what is next, and what can wait. Reorder the items, then copy one static HTML block you can commit to your site. The board stays in this browser.</p>
+  <noscript><p class="lede">Turn on JavaScript to file and reorder items. The board stays in this browser.</p></noscript>
+  <div id="board" class="columns">
+    <section class="column" data-column="now" aria-labelledby="now-title">
+      <h2 id="now-title">Now</h2>
+      <p class="col-help">In progress.</p>
+      <div class="items" data-items></div>
+      <form>
+        <label>
+          <span class="visually-hidden">Add to Now</span>
+          <input name="text" type="text" maxlength="280" placeholder="Add to Now" autocomplete="off" enterkeyhint="done" required>
+        </label>
+        <button type="submit" class="primary">Add</button>
+      </form>
+    </section>
+    <section class="column" data-column="next" aria-labelledby="next-title">
+      <h2 id="next-title">Next</h2>
+      <p class="col-help">Up after this.</p>
+      <div class="items" data-items></div>
+      <form>
+        <label>
+          <span class="visually-hidden">Add to Next</span>
+          <input name="text" type="text" maxlength="280" placeholder="Add to Next" autocomplete="off" enterkeyhint="done" required>
+        </label>
+        <button type="submit" class="primary">Add</button>
+      </form>
+    </section>
+    <section class="column" data-column="later" aria-labelledby="later-title">
+      <h2 id="later-title">Later</h2>
+      <p class="col-help">Not yet.</p>
+      <div class="items" data-items></div>
+      <form>
+        <label>
+          <span class="visually-hidden">Add to Later</span>
+          <input name="text" type="text" maxlength="280" placeholder="Add to Later" autocomplete="off" enterkeyhint="done" required>
+        </label>
+        <button type="submit" class="primary">Add</button>
+      </form>
+    </section>
+  </div>
+  <section class="export" aria-labelledby="export-title">
+    <h2 id="export-title">Export</h2>
+    <p class="help">One static HTML block for the three columns. It has no script.</p>
+    <textarea id="export-html" readonly spellcheck="false" aria-label="Static HTML block"></textarea>
+    <div class="row-actions">
+      <button type="button" class="primary" id="copy-html">Copy HTML</button>
+    </div>
+    <p id="copy-status" class="result" role="status"></p>
+  </section>
+  <footer class="site-footer">
+    <p>jogobytes next</p>
+    <a href="/">Home</a>
+  </footer>
+</main>
+<script type="module" src="/next/app.mjs"></script>
+</body>
+</html>

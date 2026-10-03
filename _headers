@@ -1,2 +1,5 @@
 /status/*.mjs
   Content-Type: text/javascript; charset=utf-8
+
+/next/*.mjs
+  Content-Type: text/javascript; charset=utf-8
